@@ -31,25 +31,25 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
     }
     return (0);
 }
-int main ()
-{
-    // char *s="ABCDEFGHIJKLMN";
-    // char *c="ABCDEFGHIJKLMN";
-    int c[5] = {1,2,3,4,6};
-    int s[4]={1,2,3,4};
-    // int *f;
-    // int *g;
-    int f;
-    int g;
-    //printf("Antes: %s\n", s);
-    f=memcmp(s, c, 0*(sizeof(int)));
-    printf("Oficial: %d", f);
-    //printArray(f,4);
-    //printf("\n");
-    g=ft_memcmp(s, c, 0*(sizeof(int)));
-    printf("\nPropia: %d", g);
-    //printArray(g,4);
-    printf("\n");
-    return 0;
-}
+// int main ()
+// {
+//     // char *s="ABCDEFGHIJKLMN";
+//     // char *c="ABCDEFGHIJKLMN";
+//     int c[5] = {1,2,3,4,6};
+//     int s[4]={1,2,3,4};
+//     // int *f;
+//     // int *g;
+//     int f;
+//     int g;
+//     //printf("Antes: %s\n", s);
+//     f=memcmp(s, c, 0*(sizeof(int)));
+//     printf("Oficial: %d", f);
+//     //printArray(f,4);
+//     //printf("\n");
+//     g=ft_memcmp(s, c, 0*(sizeof(int)));
+//     printf("\nPropia: %d", g);
+//     //printArray(g,4);
+//     printf("\n");
+//     return 0;
+// }
 
