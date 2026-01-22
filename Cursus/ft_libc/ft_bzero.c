@@ -15,15 +15,14 @@
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*str;
+    size_t i;
 
-	str = s;
-	while (n--)
+    i=0;
+	str = (unsigned char *)s;
+	while (i<n)
 	{
-		*str++ = '\0';
-		// Esto es igual que poner:
-		// *str = '\0';
-		// str++; Debido a la precedencia de operadores,
-	
+		str[i] = '\0';
+        i++;
 	}
 }
 // void printArray(int arr[], int n)

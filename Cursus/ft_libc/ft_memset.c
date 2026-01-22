@@ -11,33 +11,35 @@
 /* ************************************************************************** */
 #include <string.h>
 #include <stdio.h>
-// void printArray(int arr[], int n)
-// {
-//    for (int i=0; i<n; i++)
-//       printf("%d ", arr[i]);
-// }
-
 void *ft_memset(void *s, int c, size_t n)
 {
     unsigned char   *str;
+    int i;
 
+    i= 0;
     str = s;
     while (n--)
     {
-        *str++ = c;
+        str[i] = c;
+        i++;
     }
-    return s;
+    return (void*)str;
 }
-// int main ()
-// {
-//     //char s[21]="Hola me llamo gabriel";
-//     int s[4]={2,5,6,2};
-//     //printf("Antes: %s\n", s);
-//     //ft_memset(s, '.', 2*(sizeof(char)));
-//     ft_memset(s, 0, 2*(sizeof(int)));
-//     //memset(s, '.', 2);
-//     printf("Despues:");
-//     printArray(s,4);
-//     return 0;
-// }
-
+/*
+void printArray(int arr[], int n)
+{
+   for (int i=0; i<n; i++)
+      printf("%d ", arr[i]);
+}
+int main ()
+{
+     //char s[21]="Hola me llamo gabriel";
+     int s[4]={2,5,6,2};
+     //printf("Antes: %s\n", s);
+     //ft_memset(s, '.', 2*(sizeof(char)));
+     //ft_memset(s, 0, 2*(sizeof(int)));
+     //memset(s, 0, 2*(sizeof(int)));
+     printf("Despues:");
+     printArray(ft_memset(s, 0, 2*(sizeof(int))),4);
+     return 0;
+}*/
