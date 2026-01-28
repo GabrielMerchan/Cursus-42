@@ -25,7 +25,16 @@ void *ft_memset(void *s, int c, size_t n);
 void    ft_bzero(void *s, size_t n);
 void *ft_memcpy(void *dest, const void *src, size_t n);
 void *ft_memmove(void *dest, const void *src, size_t n);
+void *ft_memchr(const void *s, int c, size_t n);
 char    *ft_strchr(const char *s, int c);
 char *ft_substr(char const *s, unsigned int start, size_t len);
+int ft_atoi(const char *nptr);
+void *ft_calloc(size_t nmemb, size_t size);
+char *ft_itoa(int n);
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void ft_striteri(char *s, void (*f)(unsigned int, char*));
+
+//File writing
+void ft_putchar_fd(char c, int fd);
 
 #endif
