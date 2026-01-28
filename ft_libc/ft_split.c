@@ -47,39 +47,33 @@ int ft_countwords(char const *s, char c)
 char **ft_split(char const *s, char c)
 {
     char **list;
-    int count;
-    int i;
-    int wl;
+    int varArr[4];//[0]=cont wrd | [1]=cont recorrer s | [2]=long wrd | [3]=list wrd 
 
-    i = 0;
-    wl = 0;
-    count = ft_countwords(s, c);
-    list=malloc(sizeof(char*) * (count+ 1));
-    
+    varArr[1] = 0;
+    varArr[3] = 0;
+    varArr[0] = ft_countwords(s, c);
+    list=malloc(sizeof(char*) * (varArr[0]+ 1));
     if(!list)
         return NULL;
-    list[count]= NULL;
-    while (count > 0 && s[i])
+    while (varArr[0] > varArr[3] && s[varArr[1]])
     {       
-            if(s[i]!=c)
+            if(s[varArr[1]]!=c)
             {
-                while (s[i+wl]!=c && s[i+wl])
-                {
-                    wl++;
-                }
-                list[count-1] = ft_substr(s, i, wl);
-                if (!list[count - 1])
+                while (s[varArr[1]+varArr[2]]!=c && s[varArr[1]+varArr[2]])
+                    varArr[2]++;
+                list[varArr[3]] = ft_substr(s, varArr[1], varArr[2]);
+                if (!list[varArr[3]])
                     return (ft_freeall(list));
-                count--;
-                i += wl;
-                wl = 0;
+                varArr[3]++;
+                varArr[1] += varArr[2];
             }
-            else
-                i++;
+            varArr[1]++;
+            varArr[2] = 0;
     }
+    list[varArr[3]]= NULL;
     return list;
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int main (int argc, char *argv[])
 {
     char **lista;
@@ -89,9 +83,9 @@ int main (int argc, char *argv[])
     lista = ft_split(argv[1], argv[2][0]);
     while (lista[i])
     {
-        printf("Palabra %i:\n %s",i,lista[i]);
+        printf("Palabra %i: %s\n",i,lista[i]);
         i++;
     }
 
     return 0;
-}
+}*/
