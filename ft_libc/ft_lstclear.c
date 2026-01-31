@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamercha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/28 23:30:29 by gamercha          #+#    #+#             */
-/*   Updated: 2026/01/28 23:30:32 by gamercha         ###   ########.fr       */
+/*   Created: 2026/01/31 18:13:11 by gamercha          #+#    #+#             */
+/*   Updated: 2026/01/31 18:16:30 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-void ft_putchar_fd(char c, int fd)
+#include "libft.h"
+#include <stdlib.h>
+
+void ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-    write(fd, &c, 1);
+    if (!lst || !del)
+		return ;
+    del(lst ->content);
+    free(lst);
 }
-#include <fcntl.h>
-int main()
-{
-    ft_putchar_fd('X', open("testo.txt",O_RDWR | O_CREAT, 0640));
-    //create new folder and user can w and r and group can r
-    return 0;
-}
+
