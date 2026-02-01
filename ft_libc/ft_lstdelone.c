@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamercha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/31 18:13:11 by gamercha          #+#    #+#             */
-/*   Updated: 2026/01/31 18:16:30 by gamercha         ###   ########.fr       */
+/*   Created: 2026/01/31 14:56:12 by gamercha          #+#    #+#             */
+/*   Updated: 2026/01/31 14:56:14 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 #include <stdlib.h>
 
-void ft_lstclear(t_list **lst, void (*del)(void*))
+void ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-  t_list *list;
-
-  if (!lst || !del)
-	  return ;
-  list = *lst;
-  while (list)
-  {
-    list = list->next;
-    del((*lst)->content);
-    free(*lst);
-    *lst = list;
-  }
-  *lst = NULL;
+    if(!lst || !del)
+        return ;
+    del(lst -> content);
+    free(lst);
 }
 /*
 void delete(void *lst)
 {
     free(lst);
 }
+
 #include <stdio.h>
 int main()
 {
@@ -58,8 +50,12 @@ int main()
     lst1->next=new;
     new->content=j;
     new->next=NULL;
-    ft_lstclear(&lst, delete);
-    if (!lst)
-      printf("Lista eliminada\n");
+    ft_lstdelone(lst1, delete);
+    lst->next = new; //if i dont put this line will be seg fault bc is trying to read an empty node
+    while (lst)
+    {
+        printf("%i -> ", *(int *)lst->content);
+        lst = lst->next;
+    }
     return 0;
 }*/
