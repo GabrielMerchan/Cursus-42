@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamercha <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,54 +12,55 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void ft_lstclear(t_list **lst, void (*del)(void*))
+void ft_lstiter(t_list *lst, void (*f)(void *))
 {
-  t_list *list;
-
-  if (!lst || !del)
-	  return ;
-  list = *lst;
-  while (list)
-  {
-    list = list->next;
-    del((*lst)->content);
-    free(*lst);
-    *lst = list;
-  }
-  *lst = NULL;
+    if (!lst || !f)
+        return ;
+    while (lst)
+    {
+        f(lst->content);
+        lst = lst->next;
+    }
 }
-/*
-void delete(void *lst)
+/*void test(void *tst)
 {
-    free(lst);
+    char *str;
+    int i;
+
+    i = 0;
+    str = (char *)tst;
+    while(str[i])
+    {
+        str[i]-=32;
+        i++;
+    }
+    
 }
 #include <stdio.h>
 int main()
 {
     t_list *lst;
     t_list *lst1;
-    t_list *new;
-    int *i = malloc(sizeof(int));
-    int *c = malloc(sizeof(int));
-    int *j = malloc(sizeof(int));
-    *i = 1;
-    *c = 2;
-    *j = 3;
+    t_list *lst2;
+    char a[] = "a";
+    char b[] = "b";
+    char c[] = "c";
 
     lst = malloc(sizeof(t_list));
     lst1 = malloc(sizeof(t_list));
-    new = malloc(sizeof(t_list));
-    if (!lst || !lst1 || !new)
-        return 1;
-    
-    lst ->content = i;
-    lst->next= lst1;
-    lst1->content=c;
-    lst1->next=new;
-    new->content=j;
-    new->next=NULL;
-    ft_lstclear(&lst, delete);
-    if (!lst)
-      printf("Lista eliminada\n");
+    lst2 = malloc(sizeof(t_list));
+
+    lst->content=a;
+    lst->next=lst1;
+    lst1->content=b;
+    lst1->next=lst2;
+    lst2->content=c;
+    lst2->next=NULL;
+    ft_lstiter(lst, test);
+    while (lst)
+    {
+        printf("Letra :%s\n", (char *)lst->content);
+        lst = lst->next;
+    }
     return 0;
 }*/
