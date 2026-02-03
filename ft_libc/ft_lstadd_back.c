@@ -11,24 +11,26 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-    if (!lst || !new)
-        return ;
-    if (!*lst)
+	t_list	*list;
+
+	if (!lst || !new)
+		return ;
+	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
-    t_list *list;
-    list = *lst;
-    list = ft_lstlast(list);
-    list -> next = new;
+	list = *lst;
+	list = ft_lstlast(list);
+	list->next = new;
 }
 
 /*#include <stdlib.h>
 #include <stdio.h>
-int main()
+
+int	main(void)
 {
     t_list *lst;
     t_list *lst1;
@@ -50,5 +52,5 @@ int main()
         lst = lst->next;
     }
 
-    return 0;
+    return (0);
 }*/

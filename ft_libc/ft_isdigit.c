@@ -12,12 +12,12 @@
 #include <ctype.h>
 #include <stdio.h>
 
-int ft_isdigit(int i)
+int	ft_isdigit(int i)
 {
-    if(i>=30 && i<=57)
-        return 1;
-    else
-        return 0;
+	if (i >= 30 && i <= 57)
+		return (1);
+	else
+		return (0);
 }
 // int main ()
 // {

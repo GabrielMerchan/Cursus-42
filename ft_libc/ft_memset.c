@@ -10,23 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
-#include <stdio.h>
-void *ft_memset(void *s, int c, size_t n)
-{
-    unsigned char   *str;
-    int i;
 
-    i= 0;
-    str = s;
-    while (n--)
-    {
-        str[i] = c;
-        i++;
-    }
-    return (void*)str;
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*str;
+	int				i;
+
+	i = 0;
+	str = s;
+	while (n--)
+	{
+		str[i] = c;
+		i++;
+	}
+	return ((void *)str);
 }
 /*
-void printArray(int arr[], int n)
+#include <stdio.h>
+
+void	printArray(int arr[], int n)
 {
    for (int i=0; i<n; i++)
       printf("%d ", arr[i]);
@@ -41,5 +43,5 @@ int main ()
      //memset(s, 0, 2*(sizeof(int)));
      printf("Despues:");
      printArray(ft_memset(s, 0, 2*(sizeof(int))),4);
-     return 0;
+     return (0);
 }*/

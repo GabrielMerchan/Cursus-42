@@ -9,27 +9,27 @@
 /*   Updated: 2026/01/18 14:09:14 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <string.h>
 
- #include <string.h>
- #include <stdio.h>
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned const char	*s_str;
+	unsigned char		*d_str;
+	int					i;
 
- void *ft_memcpy(void *dest, const void *src, size_t n)
- {
-    unsigned const char *Sstr;
-    unsigned char *Dstr;
-    Sstr = src;
-    Dstr = dest;
-    int i= 0;
-    if (!dest || !src)
-        return NULL;
-
-    while (n--)
-    {
-        Dstr[i]= Sstr[i];
-        i++;
-    }
-    return Dstr;
- }
+	s_str = src;
+	d_str = dest;
+	i = 0;
+	if (!dest || !src)
+		return (NULL);
+	while (n--)
+	{
+		d_str[i] = s_str[i];
+		i++;
+	}
+	return (d_str);
+}
+// #include <stdio.h>
 //  void printArray(int arr[], int n)
 // {
 //    for (int i=0; i<n; i++)
@@ -58,5 +58,5 @@
 //     g=memcpy(d, s, 0*(sizeof(char)));
 //     printf("\nOficial: %s", g);
 //     // printArray(g,3);
-//     return 0;
+//     return (0);
 // }

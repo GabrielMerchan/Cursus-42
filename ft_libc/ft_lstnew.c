@@ -9,22 +9,22 @@
 /*   Updated: 2026/01/31 13:50:27 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include "libft.h"
-t_list *ft_lstnew(void *content)
+#include <stdlib.h>
+
+t_list	*ft_lstnew(void *content)
 {
-    t_list *cont;
+	t_list	*cont;
 
-    cont = malloc(sizeof(t_list));
-    if (!cont)
-        return NULL;
-    cont -> content = content;
-    cont -> next = NULL;
-
-    return cont;
+	cont = malloc(sizeof(t_list));
+	if (!cont)
+		return (NULL);
+	cont->content = content;
+	cont->next = NULL;
+	return (cont);
 }
 /*#include <stdio.h>
-int main()
+int	main(void)
 {
     t_list *temp;
     int i = 36;
@@ -35,5 +35,5 @@ int main()
         printf("%i -> ", *(int *)temp -> content);
         temp = temp -> next;
     }
-    return 0;
+    return (0);
 }*/

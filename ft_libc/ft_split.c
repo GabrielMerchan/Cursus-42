@@ -9,77 +9,93 @@
 /*   Updated: 2026/01/27 19:04:50 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include "libft.h"
-void *ft_freeall(char **s)
-{
-    int i;
+#include <stdlib.h>
 
-    i=0;
-    while (s[i])
-    {
-        free(s[i]);
-        i++;
-    }
-    free(s);
-    return NULL;
-}
-int ft_countwords(char const *s, char c)
+static void	*ft_freeall(char **s, int c)
 {
-    int count;
-    int i;
+	int	i;
 
-    count = 0;
-    i = 0;   
-    while (s[i])
-    {
-        if(s[i]!=c)
-        {
-            count++;
-            while (s[i]&& s[i]!=c)
-                i++;
-        }
-        else
-            i++;
-    }
-    return count;
+	i = 0;
+	while (i < c)
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (NULL);
 }
-char **ft_split(char const *s, char c)
+
+static int	ft_countwords(char const *s, char c)
 {
-    char **list;
-    int varArr[4];//[0]=cont wrd | [1]=cont recorrer s | [2]=long wrd | [3]=list wrd 
+	int	count;
+	int	i;
 
-    varArr[1] = 0;
-    varArr[3] = 0;
-    varArr[0] = ft_countwords(s, c);
-    list=malloc(sizeof(char*) * (varArr[0]+ 1));
-    if(!list)
-        return NULL;
-    while (varArr[0] > varArr[3] && s[varArr[1]])
-    {       
-            if(s[varArr[1]]!=c)
-            {
-                while (s[varArr[1]+varArr[2]]!=c && s[varArr[1]+varArr[2]])
-                    varArr[2]++;
-                list[varArr[3]] = ft_substr(s, varArr[1], varArr[2]);
-                if (!list[varArr[3]])
-                    return (ft_freeall(list));
-                varArr[3]++;
-                varArr[1] += varArr[2];
-            }
-            varArr[1]++;
-            varArr[2] = 0;
-    }
-    list[varArr[3]]= NULL;
-    return list;
+	count = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			count++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+		else
+			i++;
+	}
+	return (count);
 }
+
+static char	*make_word(char const *s, char c, int *i)
+{
+	int		wlen;
+	char	*word;
+
+	wlen = 0;
+	while (s[*i + wlen] && s[*i + wlen] != c)
+		wlen++;
+	word = ft_substr(s, *i, wlen);
+	*i += wlen;
+	return (word);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**list;
+	int		var[3];
+
+	if (!s)
+		return (NULL);
+	var[0] = 0;
+	var[2] = 0;
+	var[1] = ft_countwords(s, c);
+	list = malloc(sizeof(char *) * (var[1] + 1));
+	if (!list)
+		return (NULL);
+	while (var[1] > var[2] && s[var[0]])
+	{
+		if (s[var[0]] != c)
+		{
+			list[var[2]] = make_word(s, c, &var[0]);
+			if (!list[var[2]])
+				return (ft_freeall(list, var[2]));
+			var[2]++;
+		}
+		else
+			var[0]++;
+	}
+	list[var[2]] = NULL;
+	return (list);
+}
+
 /*#include <stdio.h>
 int main (int argc, char *argv[])
 {
     char **lista;
     int i = 0;
     if (argc != 3)
-        return -1;
+        return (-1);
     lista = ft_split(argv[1], argv[2][0]);
     while (lista[i])
     {
@@ -87,5 +103,5 @@ int main (int argc, char *argv[])
         i++;
     }
 
-    return 0;
+    return (0);
 }*/

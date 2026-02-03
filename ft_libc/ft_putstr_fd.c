@@ -10,21 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-void ft_putstr_fd(char *s, int fd)
-{
-    int i;
 
-    i = 0;
-    while (s[i])
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }
 /*#include <fcntl.h>
-int main()
+int	main(void)
 {
-    ft_putstr_fd("Mi nombre es Gladiador", open("testo.txt",O_RDWR | O_CREAT, 0640));
+    ft_putstr_fd("Mi nombre es Gladiador", open("testo.txt",O_RDWR | O_CREAT,
+			0640));
     //create new folder and user can w and r and group can r
-    return 0;
+    return (0);
 }*/

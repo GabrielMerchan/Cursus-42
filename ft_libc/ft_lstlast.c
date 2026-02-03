@@ -10,15 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-t_list *ft_lstlast(t_list *lst)
+
+t_list	*ft_lstlast(t_list *lst)
 {
-    while (lst->next!=NULL)
-        lst=lst->next;
-    return lst;
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
 /*#include <stdlib.h>
 #include <stdio.h>
-int main()
+
+int	main(void)
 {
     t_list *lst;
     t_list *lst1;
@@ -34,5 +36,5 @@ int main()
     new->content="Gladiador";
     new->next=NULL;
     printf("%s\n", (char*)ft_lstlast(lst)->content);
-    return 0;
+    return (0);
 }*/

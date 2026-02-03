@@ -12,21 +12,22 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void ft_lstdelone(t_list *lst, void (*del)(void*))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-    if(!lst || !del)
-        return ;
-    del(lst -> content);
-    free(lst);
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
 }
 /*
-void delete(void *lst)
+void	delete(void *lst)
 {
     free(lst);
 }
 
 #include <stdio.h>
-int main()
+
+int	main(void)
 {
     t_list *lst;
     t_list *lst1;
@@ -42,7 +43,7 @@ int main()
     lst1 = malloc(sizeof(t_list));
     new = malloc(sizeof(t_list));
     if (!lst || !lst1 || !new)
-        return 1;
+        return (1);
     
     lst ->content = i;
     lst->next= lst1;
@@ -51,11 +52,13 @@ int main()
     new->content=j;
     new->next=NULL;
     ft_lstdelone(lst1, delete);
-    lst->next = new; //if i dont put this line will be seg fault bc is trying to read an empty node
+    lst->next = new;
+	//if i dont put this line will be seg 
+    //fault bc is trying to read an empty node
     while (lst)
     {
         printf("%i -> ", *(int *)lst->content);
         lst = lst->next;
     }
-    return 0;
+    return (0);
 }*/

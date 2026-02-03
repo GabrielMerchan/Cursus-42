@@ -10,23 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-int ft_lstsize(t_list *lst)
-{
-    int i;
 
-    if (!lst)
-        return (0);
-    i = 0;
-    while (lst)
-    {
-        lst = lst->next;
-        i++;
-    }
-    return i;
+int	ft_lstsize(t_list *lst)
+{
+	int	i;
+
+	if (!lst)
+		return (0);
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
 /*#include <stdlib.h>
 #include <stdio.h>
-int main()
+
+int	main(void)
 {
     t_list *lst;
     t_list *lst1;
@@ -48,5 +50,5 @@ int main()
     printf("%i -> ", ft_lstsize(lst));
 
 
-    return 0;
+    return (0);
 }*/

@@ -10,11 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
+
 void ft_putendl_fd(char *s, int fd)
 {
     int i;
     char c;
 
+    if (!s || fd)
+        return ;
     i = 0;
     while (s[i])
     {
