@@ -10,15 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
+#include "libft.h"
 char    *ft_strdup(const char *s)
 {
     char *str;
     int i;
     char *sstr;
 
+    if (!s)
+        return NULL;
     i = 0;
     sstr= (char *)s;
-    str = malloc(sizeof(s));
+    str = malloc(ft_strlen(s) + 1);
     if (str == NULL)
         return NULL;
     while (sstr[i])
@@ -26,6 +29,7 @@ char    *ft_strdup(const char *s)
         str[i] = sstr[i];
         i++;
     }
+    str[i] = '\0';
     return str;
 }
 /*
