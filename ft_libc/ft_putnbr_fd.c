@@ -9,22 +9,15 @@
 /*   Updated: 2026/01/28 23:30:32 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 #include <unistd.h>
-void ft_putstr_fd(char *s, int fd)
-{
-    int i;
 
-    i = 0;
-    while (s[i])
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
-}
 void	ft_putnbr_fd(int nb, int fd)
 {
 	char	num;
 
+	if (!fd)
+		return ;
 	if (nb <= -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);
@@ -47,9 +40,9 @@ void	ft_putnbr_fd(int nb, int fd)
 	}
 }
 /*#include <fcntl.h>
-int main()
+int	main(void)
 {
-    ft_putnbr_fd(-4623827, open("testo.txt",O_RDWR | O_CREAT, 0640));
-    //create new folder and user can w and r and group can r
-    return 0;
+	ft_putnbr_fd(-2147483648, open("testo.txt",O_RDWR | O_CREAT, 0640));
+	//create new folder and user can w and r and group can r
+	return (0);
 }*/

@@ -12,16 +12,16 @@
 #include <ctype.h>
 #include <stdio.h>
 
-int ft_isprint(int i)
+int	ft_isprint(int i)
 {
-    if((i>=32 && i<=126))
-        return 1;
-    else
-        return 0;
+	if ((i >= 32 && i <= 126))
+		return (1);
+	else
+		return (0);
 }
 // int main ()
 // {
 //         printf("%i\n", ft_isprint(' '));
 //         printf("%i\n", isprint(' '));
-//         return 0;
+//         return (0);
 // }

@@ -12,15 +12,15 @@
 #include "libft.h"
 #include <stdlib.h>
 
-void ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    if (!lst || !f)
-        return ;
-    while (lst)
-    {
-        f(lst->content);
-        lst = lst->next;
-    }
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }
 /*void test(void *tst)
 {
@@ -37,7 +37,8 @@ void ft_lstiter(t_list *lst, void (*f)(void *))
     
 }
 #include <stdio.h>
-int main()
+
+int	main(void)
 {
     t_list *lst;
     t_list *lst1;
@@ -62,5 +63,5 @@ int main()
         printf("Letra :%s\n", (char *)lst->content);
         lst = lst->next;
     }
-    return 0;
+    return (0);
 }*/

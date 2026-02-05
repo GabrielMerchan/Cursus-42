@@ -10,28 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
-#include <stdio.h>
-void *ft_memchr(const void *s, int c, size_t n)
-{
-    const unsigned char *str;
-    unsigned char chr;
-    size_t i;
 
-    if(!s||c<0)
-        return NULL;
-    i=0;
-    chr = (unsigned char)c;
-    str= (const unsigned char*)s;
-    while(n--)
-    {
-        if(*str==chr)
-            return ((void *)str);
-        str++;
-    }
-    if(*str=='\0')
-        return ((void *)str);
-    return NULL;
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	const unsigned char	*str;
+	unsigned char		chr;
+
+	chr = (unsigned char)c;
+	str = (const unsigned char *)s;
+	while (n--)
+	{
+		if (*str == chr)
+			return ((void *)str);
+		str++;
+	}
+	return (NULL);
 }
+//#include <stdio.h>
 //  void printArray(int arr[], int n)
 // {
 //    for (int i=0; i<n; i++)
@@ -57,5 +52,5 @@ void *ft_memchr(const void *s, int c, size_t n)
 //     //printf("\nOficial: %s", g);
 //     printArray(g,4);
 //     printf("\n");
-//     return 0;
+//     return (0);
 // }

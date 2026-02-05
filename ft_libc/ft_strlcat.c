@@ -9,34 +9,36 @@
 /*   Updated: 2026/01/18 17:57:53 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-#include <stdio.h>
+#include "libft.h"
 #include <stdlib.h>
-#include <bsd/string.h>
-size_t ft_strlcat(char *dst, const char *src, size_t size)
-{
-    size_t i = 0;
-    size_t j = 0;
-    if (!dst || !src)
-        return (0);
-    while(dst[i])//aqui hay que poner i = strlen(dst);
-        i++;
-    if (i >= size)
-        return (i+size-1);//el -1 es porque quita el espacio del nulo.
-    while (src[j]&&(size-1 -i) > j)
-    {
-        printf("Entra");
-        dst[i+j] = src[j];
-        j++;
-    }
-    dst[i+j]= '\0';
-    j=0;
-    while (src[j])    //aqui hay que poner j = strlen(src);
-        j++;
-    return (i+j);
-}
 
-/*int	main(int argc, char **argv)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	i = ft_strlen(dst);
+	if (i >= size)
+		return (ft_strlen(src) + size);
+	while (src[j] && (size - 1 - i) > j)
+	{
+		dst[i + j] = src[j];
+		j++;
+	}
+	dst[i + j] = '\0';
+	j = 0;
+	while (src[j])
+		j++;
+	return (i + j);
+}
+/*
+#include <bsd/string.h>
+#include <stdio.h>
+#include <unistd.h>
+
+int	main(int argc, char **argv)
 {
 	char	*dest;
 	char	*src;

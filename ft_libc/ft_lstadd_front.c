@@ -10,14 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-void ft_lstadd_front(t_list **lst, t_list *new)
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    new -> next = *lst;
-    *lst = new;
+	new->next = *lst;
+	*lst = new;
 }
 /*#include <stdlib.h>
 #include <stdio.h>
-int main()
+
+int	main(void)
 {
     t_list *lst;
     t_list *lst1;
@@ -42,5 +44,5 @@ int main()
         lst = lst->next;
     }
 
-    return 0;
+    return (0);
 }*/

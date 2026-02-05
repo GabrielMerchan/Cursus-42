@@ -12,35 +12,35 @@
 #include "libft.h"
 #include <stdlib.h>
 
-t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-    t_list *head;
-    t_list *temp;
+	t_list	*head;
+	t_list	*temp;
 
-    if (!lst || !f || !del)
-        return NULL;
-    head = NULL;
-    while (lst)
-    {
-        if (!head)
-            head = ft_lstnew(f(lst->content));
-        else
-        {
-            temp = ft_lstnew(f(lst->content));
-            if (!temp)
-            {
-                ft_lstclear(&head, del);
-                return NULL;
-            }
-            else
-                ft_lstadd_back(&head, temp);
-        }
-        lst = lst->next;
-    }
-    return head;
+	if (!lst || !f || !del)
+		return (NULL);
+	head = NULL;
+	while (lst)
+	{
+		if (!head)
+			head = ft_lstnew(f(lst->content));
+		else
+		{
+			temp = ft_lstnew(f(lst->content));
+			if (!temp)
+			{
+				ft_lstclear(&head, del);
+				return (NULL);
+			}
+			else
+				ft_lstadd_back(&head, temp);
+		}
+		lst = lst->next;
+	}
+	return (head);
 }
 /*
-void *test(void *tst)
+void	*test(void *tst)
 {
     char *str;
     char *copy;
@@ -54,14 +54,15 @@ void *test(void *tst)
         copy[i]-=32;
         i++;
     }
-    return copy;
+    return (copy);
 }
-void delete(void *lst)
+void	delete(void *lst)
 {
     free(lst);
 }
 #include <stdio.h>
-int main()
+
+int	main(void)
 {
     t_list *lst;
     t_list *lst1;
@@ -93,5 +94,5 @@ int main()
     free(lst);
     free(lst1);
     free(lst2);
-    return 0;
+    return (0);
 }*/

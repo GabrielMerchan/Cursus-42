@@ -9,18 +9,16 @@
 /*   Updated: 2026/01/14 19:06:41 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	ft_isalpha(int i)
+{
+	if ((i > 64 && i < 91) || (i > 96 && i < 123))
+		return (1);
+	else
+		return (0);
+}
 // #include <ctype.h>
 // #include <stdio.h>
-
-
-int ft_isalpha(int i)
-{
-    if  ((i > 64 && i < 91) || (i > 96 && i < 123))
-        return (1);
-    else
-        return (0);
-}
-
 // int main ()
 // {
 //         printf("%i\n", ft_isalpha('f'));

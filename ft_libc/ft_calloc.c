@@ -9,73 +9,50 @@
 /*   Updated: 2026/01/21 22:22:47 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	*str;
-    size_t i;
+	unsigned char	*ptr;
 
-    i=0;
-	str = (unsigned char *)s;
-	while (i<n)
-	{
-		str[i] = '\0';
-        i++;
-	}
-}
-void *ft_memset(void *s, int c, size_t n)
-{
-    unsigned char   *str;
-    int i;
-
-    i= 0;
-    str = s;
-    while (n--)
-    {
-        str[i] = c;
-        i++;
-    }
-    return (void*)str;
-}
-void *ft_calloc(size_t nmemb, size_t size)
-{
-    unsigned char *ptr;
-
-    if (nmemb*size > 2147483647)
-        return NULL;
-    if (nmemb == 0 || size == 0)
-        return NULL;
-    ptr = malloc(nmemb*size);
-    ft_bzero(ptr,nmemb*size);
-    return ptr;
+	if (nmemb * size > 2147483647)
+		return (NULL);
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
 }
 /*
 #include <stdio.h>
+
 int main (int argc, char *argv[])
 {
-    //int i;
-    char *pptr;
-    char *optr;
-    int n;
+	//int i;
+	char *pptr;
+	char *optr;
+	int n;
 
-    if (argc != 2)
-        return (-1);
+	if (argc != 2)
+		return (-1);
 
-    n = atoi(argv[1]);
+	n = atoi(argv[1]);
 
-    pptr = ft_calloc(n, sizeof(char));
-    optr = calloc(n, sizeof(char));
-    printf("ft_calloc %s | calloc %s",pptr,optr);
-    //i = 0;
+	pptr = ft_calloc(n, sizeof(char));
+	optr = calloc(n, sizeof(char));
+	printf("ft_calloc %s | calloc %s",pptr,optr);
+	//i = 0;
 //    while (i < n)
 //    {
-//        printf("ft_calloc[%i] = %d | calloc[%d] = %d\n",i, pptr[i], i, optr[i]);
+//        printf("ft_calloc[%i] = %d | calloc[%d] = %d\n",i, pptr[i], i,
+		optr[i]);
 //        i++;
 //    }
 
-    free(pptr);
-    free(optr);
-    return (0);
+	free(pptr);
+	free(optr);
+	return (0);
 }*/

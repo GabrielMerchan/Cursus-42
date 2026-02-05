@@ -9,29 +9,31 @@
 /*   Updated: 2026/01/18 17:57:53 by gamercha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <string.h>
 #include <stdio.h>
-char    *ft_strchr(const char *s, int c)
-{
-    int i;
 
-    i = 0;
-    if (!s)
-        return (0);
-    while(s[i])
-    {
-        if (s[i] == c)
-            return ((char*)&s[i]);
-        i++;
-    }
-    if (c == '\0')
-		return ((char *)&s[i]);
-    return NULL;
-}
-/*int main ()
+char	*ft_strchr(const char *s, int c)
 {
-    char c[]="Carl Cox";
-    printf("Propia: %s\n", ft_strchr(c, 0));
-    printf("Oficial: %s\n", strchr(c, 0));
-    return (0);
+	int				i;
+	unsigned char	chr;
+
+	chr = (unsigned char)c;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == chr)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if (chr == '\0')
+		return ((char *)&s[i]);
+	return (NULL);
+}
+/*
+#include <string.h>
+int main ()
+{
+	char c[]="Carl Cox";
+	printf("Propia: %s\n", ft_strchr(c, 0));
+	printf("Oficial: %s\n", strchr(c, 0));
+	return (0);
 }*/

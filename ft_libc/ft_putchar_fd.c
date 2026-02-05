@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
-void ft_putchar_fd(char c, int fd)
+
+void	ft_putchar_fd(char c, int fd)
 {
-    write(fd, &c, 1);
+	write(fd, &c, 1);
 }
-#include <fcntl.h>
-int main()
-{
-    ft_putchar_fd('X', open("testo.txt",O_RDWR | O_CREAT, 0640));
-    //create new folder and user can w and r and group can r
-    return 0;
-}
+// #include <fcntl.h>
+// int main()
+// {
+//     ft_putchar_fd('X', open("testo.txt",O_RDWR | O_CREAT, 0640));
+//     //create new folder and user can w and r and group can r
+//     return (0);
+// }
