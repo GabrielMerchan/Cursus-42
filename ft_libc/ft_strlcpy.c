@@ -12,27 +12,28 @@
 /*#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>*/
-#include <bsd/string.h>
+#include <string.h>
 
 size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-    int i= 0;
-    size_t j = 0;
-    if (!dest || !src)
-        return (0);
-    while (src[i])
-        i++;
-    if (size)
-    while (src[j] && j < size - 1)
-    {
-        dest[j] = src[j];
-        j++;
-    }
-    dest[j] = '\0';
-    return i;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (src[i])
+		i++;
+	if (size > 0)
+	{
+		while (src[j] && j < size - 1)
+		{
+			dest[j] = src[j];
+			j++;
+		}
+		dest[j] = '\0';
+	}
+	return (i);
 }
-
-
 
 /*int	main(int argc, char **argv)
 {
@@ -50,4 +51,3 @@ size_t	ft_strlcpy(char *dest, char *src, size_t size)
 	free(src);
 	return (0);
 }*/
-

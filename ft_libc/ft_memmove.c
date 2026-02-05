@@ -17,10 +17,10 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char		*d_str;
 	unsigned const char	*s_str;
 
-	d_str = dest;
-	s_str = src;
 	if (!dest && !src)
 		return (NULL);
+	d_str = (unsigned char *)dest;
+	s_str = (const unsigned char *)src;
 	if (d_str < s_str)
 		ft_memcpy(d_str, s_str, n);
 	else

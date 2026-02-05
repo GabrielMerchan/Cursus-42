@@ -15,11 +15,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const unsigned char	*str;
 	unsigned char		chr;
-	size_t				i;
 
-	if (!s || c < 0)
-		return (NULL);
-	i = 0;
 	chr = (unsigned char)c;
 	str = (const unsigned char *)s;
 	while (n--)
@@ -28,8 +24,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((void *)str);
 		str++;
 	}
-	if (*str == '\0')
-		return ((void *)str);
 	return (NULL);
 }
 //#include <stdio.h>

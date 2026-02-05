@@ -15,6 +15,8 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	int	i;
 
+	if (!s || !fd)
+		return ;
 	i = 0;
 	while (s[i])
 	{
@@ -25,8 +27,8 @@ void	ft_putstr_fd(char *s, int fd)
 /*#include <fcntl.h>
 int	main(void)
 {
-    ft_putstr_fd("Mi nombre es Gladiador", open("testo.txt",O_RDWR | O_CREAT,
+	ft_putstr_fd("Mi nombre es Gladiador", open("testo.txt",O_RDWR | O_CREAT,
 			0640));
-    //create new folder and user can w and r and group can r
-    return (0);
+	//create new folder and user can w and r and group can r
+	return (0);
 }*/

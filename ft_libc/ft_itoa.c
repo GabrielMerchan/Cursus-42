@@ -11,11 +11,13 @@
 /* ************************************************************************** */
 #include <stdlib.h>
 
-static int	digit_count(int n, int numlen)
+static int	digit_count(long n, int numlen)
 {
-	int	digits;
+	long	digits;
 
 	digits = n;
+	if (n == 0)
+		return (1);
 	while (digits > 0)
 	{
 		digits /= 10;
@@ -24,7 +26,7 @@ static int	digit_count(int n, int numlen)
 	return (numlen);
 }
 
-static void	*set_num(int numlen, int n, char *str)
+static void	*set_num(int numlen, long n, char *str)
 {
 	str[numlen] = '\0';
 	while (numlen > 0)
@@ -36,7 +38,7 @@ static void	*set_num(int numlen, int n, char *str)
 	return (str);
 }
 
-static void	*set_neg_num(int numlen, int n, char *str)
+static void	*set_neg_num(int numlen, long n, char *str)
 {
 	str[0] = '-';
 	str[numlen] = '\0';
@@ -53,26 +55,26 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	int		numlen;
+	long	nmb;
 
+	nmb = n;
 	numlen = 0;
-	if (!n)
-		return (NULL);
-	if (n < 0)
+	if (nmb < 0)
 	{
-		n *= -1;
-		numlen = digit_count(n, numlen) + 1;
+		nmb *= -1;
+		numlen = digit_count(nmb, numlen) + 1;
 		str = malloc((sizeof(char) * numlen) + 1);
 		if (!str)
 			return (NULL);
-		set_neg_num(numlen, n, str);
+		set_neg_num(numlen, nmb, str);
 	}
 	else
 	{
-		numlen = digit_count(n, numlen);
+		numlen = digit_count(nmb, numlen);
 		str = malloc((sizeof(char) * numlen) + 1);
 		if (!str)
 			return (NULL);
-		set_num(numlen, n, str);
+		set_num(numlen, nmb, str);
 	}
 	return (str);
 }
@@ -82,10 +84,10 @@ char	*ft_itoa(int n)
 
 int main (int argc, char *argv[])
 {
-    int n;
-    n = atoi(argv[1]);
-    if (argc!= 2)
-        return (-1);
-    printf("Number: %i\nItoa: %s\n", n, ft_itoa(n));
-    return (0);
+	int n;
+	n = atoi(argv[1]);
+	if (argc!= 2)
+		return (-1);
+	printf("Number: %i\nItoa: %s\n", n, ft_itoa(n));
+	return (0);
 }*/

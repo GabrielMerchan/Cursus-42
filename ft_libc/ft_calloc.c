@@ -19,8 +19,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (nmemb * size > 2147483647)
 		return (NULL);
 	if (nmemb == 0 || size == 0)
-		return (NULL);
+		return (malloc(0));
 	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
 	ft_bzero(ptr, nmemb * size);
 	return (ptr);
 }
@@ -29,20 +31,20 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 int main (int argc, char *argv[])
 {
-    //int i;
-    char *pptr;
-    char *optr;
-    int n;
+	//int i;
+	char *pptr;
+	char *optr;
+	int n;
 
-    if (argc != 2)
-        return (-1);
+	if (argc != 2)
+		return (-1);
 
-    n = atoi(argv[1]);
+	n = atoi(argv[1]);
 
-    pptr = ft_calloc(n, sizeof(char));
-    optr = calloc(n, sizeof(char));
-    printf("ft_calloc %s | calloc %s",pptr,optr);
-    //i = 0;
+	pptr = ft_calloc(n, sizeof(char));
+	optr = calloc(n, sizeof(char));
+	printf("ft_calloc %s | calloc %s",pptr,optr);
+	//i = 0;
 //    while (i < n)
 //    {
 //        printf("ft_calloc[%i] = %d | calloc[%d] = %d\n",i, pptr[i], i,
@@ -50,7 +52,7 @@ int main (int argc, char *argv[])
 //        i++;
 //    }
 
-    free(pptr);
-    free(optr);
-    return (0);
+	free(pptr);
+	free(optr);
+	return (0);
 }*/

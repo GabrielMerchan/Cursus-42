@@ -11,26 +11,27 @@
 /* ************************************************************************** */
 #include <unistd.h>
 
-void ft_putendl_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
-    int i;
-    char c;
+	int		i;
+	char	c;
 
-    if (!s || fd)
-        return ;
-    i = 0;
-    while (s[i])
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
-    c = '\n';
-    write(fd, &c, 1);
+	if (!s || !fd)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	c = '\n';
+	write(fd, &c, 1);
 }
 /*#include <fcntl.h>
-int main()
+int	main(void)
 {
-    ft_putendl_fd("Mi nombre es Gladiador", open("testo.txt",O_RDWR | O_CREAT, 0640));
-    //create new folder and user can w and r and group can r
-    return 0;
+	ft_putendl_fd("Mi nombre es Gladiador", open("testo.txt",O_RDWR | O_CREAT,
+			0640));
+	//create new folder and user can w and r and group can r
+	return (0);
 }*/
