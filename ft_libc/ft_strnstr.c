@@ -31,16 +31,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-//#include <stdio.h>
-// int main(int argc, char *argv[])
-// {
-//     if(argc!=4)
-//         return (-1);
-//     printf("Pajar: %s\n",argv[1]);
-//     printf("Aguja: %s\n",argv[2]);
-//     printf("Len: %d\n",atoi(argv[3]));
-//     printf("Oficial: %s\n",strnstr(argv[1], argv[2], atoi(argv[3])));
-//     printf("Propia: %s\n",ft_strnstr(argv[1], argv[2], atoi(argv[3])));
-
-//     return (0);
-// }
