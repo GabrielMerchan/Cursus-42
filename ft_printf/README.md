@@ -60,7 +60,7 @@ ft_printf("Hola %s, número: %d\n", "mundo", 42);
 
 ---
 
-## 🧪 Especificadores implementados
+##  Especificadores implementados
 
 * `%c` → carácter
 * `%s` → string
@@ -101,7 +101,6 @@ ft_printf("Hola %s, número: %d\n", "mundo", 42);
 Se ha utilizado IA como herramienta de apoyo en:
 
 * Resolución de dudas conceptuales (por ejemplo, funcionamiento de `%p` y manejo de punteros)
-* Revisión de errores comunes y debugging
 * Orientación sobre estructura del proyecto y buenas prácticas
 
 No se ha utilizado IA para generar directamente el código final del proyecto, sino como soporte para el aprendizaje y comprensión.
